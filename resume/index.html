@@ -1,0 +1,489 @@
+<!Doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Jadon Gootee | Web Presence</title>
+  <style>
+   :root {
+      color-scheme: light;
+      --ink: #172b35;
+      --muted: #52636a;
+      --paper: #f5f6f2;
+      --surface: #ffffff;
+      --accent: #176b63;
+      --accent-dark: #104c48;
+      --line: #dce4df;
+      --highlight: #e4f1e9;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 7rem;
+    }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+    a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    a:hover {
+      color: var(--accent);
+    }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 1rem max(1.5rem, calc((100% - 1080px) / 2));
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-wrap,
+    .nav-links,
+    .hero-inner,
+    .section-heading,
+    .contact-links {
+      display: flex;
+      align-items: center;
+    }
+    .nav-wrap {
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .brand {
+      font-size: 1.05rem;
+      font-weight: 750;
+    }
+    .nav-links {
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.5rem 1.25rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 650;
+    }
+    .hero {
+      padding: 5rem 1.5rem;
+      background: var(--highlight);
+    }
+    .hero-inner {
+      max-width: 1080px;
+      justify-content: space-between;
+      gap: 3rem;
+      margin: 0 auto;
+    }
+    .hero-copy {
+      max-width: 680px;
+    }
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      color: var(--accent-dark);
+      font-size: 0.8rem;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+    h1 {
+      margin-bottom: 0.75rem;
+      font-size: clamp(2.6rem, 7vw, 4.7rem);
+      letter-spacing: -0.055em;
+      line-height: 1.05;
+    }
+    h2 {
+      margin-bottom: 0.4rem;
+      font-size: clamp(1.65rem, 4vw, 2.15rem);
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+    }
+    h3 {
+      margin-bottom: 0.35rem;
+      font-size: 1.15rem;
+      line-height: 1.35;
+    }
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
+    .hero-note {
+      flex: 0 0 210px;
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 0.75rem;
+    }
+    .hero-note p {
+      margin-bottom: 0.3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .hero-note strong {
+      display: block;
+      font-size: 1.05rem;
+    }
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .content-section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 7rem;
+    }
+    .section-heading {
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .section-heading p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+    .bio-copy {
+      max-width: 790px;
+      color: #354950;
+      font-size: 1.05rem;
+    }
+    .bio-copy p:last-child {
+      margin-bottom: 0;
+    }
+    .goal-card {
+      max-width: 790px;
+      padding: 1.35rem 1.5rem;
+      background: var(--surface);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    .goal-card p:last-child {
+      margin-bottom: 0;
+    }
+    .tag-list,
+    .tool-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin: 1.5rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .tag-list li,
+    .tool-list li {
+      padding: 0.55rem 0.9rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .tool-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+    .tool-list li {
+      border-radius: 0.55rem;
+    }
+    .tool-list span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.87rem;
+      font-weight: 400;
+    }
+    .social-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .social-list li {
+      padding: 1rem 1.1rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 0.55rem;
+    }
+    .social-list a {
+      font-weight: 700;
+    }
+    .social-list p {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .samples-intro {
+      max-width: 720px;
+      color: var(--muted);
+    }
+    .sample-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 760px) {
+      .sample-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 520px) {
+      .sample-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .sample-card {
+      overflow: hidden;
+      margin: 0;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 0.7rem;
+    }
+    .sample-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #e7ece8;
+    }
+    .sample-card figcaption {
+      padding: 1rem 1.1rem 1.15rem;
+    }
+    .sample-card figcaption p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .fpo-label {
+      display: inline-block;
+      margin-top: 0.6rem;
+      padding: 0.16rem 0.5rem;
+      background: #fff1dd;
+      border-radius: 0.25rem;
+      color: #70420d;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+    .contact-links {
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.25rem;
+    }
+    .button-link {
+      display: inline-block;
+      padding: 0.7rem 1rem;
+      background: var(--accent-dark);
+      border-radius: 0.4rem;
+      color: #fff;
+      font-weight: 700;
+    }
+    .button-link:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    footer {
+      padding: 1.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav-wrap">
+      <a class="brand" href="#home">Jadon Gootee</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#goals">Career direction</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#social">Social</a></li>
+        <li><a href="#work">Work samples</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1 id="page-title">Hello, I’m Jadon Gootee.</h1>
+        <p>Welcome to my web presence: This is a starting point for sharing what I’m learning, my experience, and the kind of opportunities I’m excited to pursue.</p>
+      </div>
+      <aside class="hero-note" aria-label="Career focus">
+        <p>Currently looking for</p>
+        <strong>Entry-level creative and digital opportunities</strong>
+      </aside>
+    </div>
+  </section>
+
+  <main id="main-content">
+    <section class="content-section" id="about">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">A little about me</p>
+          <h2 id="about-title">Curious by nature, thoughtful by design.</h2>
+        </div>
+      </div>
+      <div class="bio-copy">
+        <p>Hi, I'm the artist behind arcanaKyouka, I'm an independent artist and writer, focused on creating art prints ranging from nature, characters, fantasy, and things I want to draw. I enjoy taking photos of animals and nature in my spare time. I'm also really into anime and japanese culture. These interests drive my ideas and creative process. I want my artwork to give people a sense of wonder and curiosity. I also want people to look at my work and get inspired; art gives us a way to create stories, explore ideas, and imagine new ideas. My name is Japanese and comes from "arcana" (mystery) and "kyouka" (mirror flower). This idea is also how I view art. Everyone sees art differently, and art reflects what people see back to them. Just like the optical illusion with a bunny and a duck, you might see one before the other and might not see the other at all. Art is subject to opinions and ideas, but remember the artist might have a different idea. So dive deeper and try to understand what your looking at.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="goals">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Career direction</p>
+          <h2 id="goals-title">The work I’m looking for</h2>
+        </div>
+      </div>
+      <div class="goal-card">
+        <p>As an independent artist and writer, I’m drawn to the way thoughtful visuals and words can spark curiosity and tell a story. I’d love to bring that perspective to web content, digital design, and front-end development through an entry-level role, internship, or collaborative project. I’m building my skills through small practice projects, learning how to make websites accessible and responsive, and asking classmates and mentors for feedback. I’m excited to keep learning while contributing creativity, clear communication, and dependable follow-through to a team.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="skills">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">How I work</p>
+          <h2 id="skills-title">Professional skills</h2>
+          <p>Strengths I bring to a team and continue to practice.</p>
+        </div>
+      </div>
+      <ul class="tag-list">
+        <li>Written communication</li>
+        <li>Active listening</li>
+        <li>Collaboration</li>
+        <li>Creative problem-solving</li>
+        <li>Organization</li>
+        <li>Time management</li>
+        <li>Attention to detail</li>
+        <li>Adaptability</li>
+        <li>Research</li>
+        <li>Giving and receiving feedback</li>
+      </ul>
+    </section>
+
+    <section class="content-section" id="tools">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">My toolkit</p>
+          <h2 id="tools-title">Software and hardware</h2>
+          <p>Tools I use or am learning for digital and creative work.</p>
+        </div>
+      </div>
+      <ul class="tool-list">
+        <li>Krita <span>Digital painting and illustration</span></li>
+        <li>Adobe Illustrator <span>Vector graphics and illustration</span></li>
+        <li>Adobe Photoshop <span>Image editing and visual exploration</span></li>
+        <li>Canva <span>Graphic design and visual content creation</span></li>
+        <li>Novelist <span>Writing and organizing creative content</span></li>
+        <li>Reedsy Studio <span>Writing and organizing creative content</span></li>
+        <li>Capcut <span>Video editing and creative content production</span></li>
+        <li>Visual Studio Code <span>Code editing and project organization</span></li>
+      </ul>
+    </section>
+
+    <section class="content-section" id="social">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Find me online</p>
+          <h2 id="social-title">Social media and web</h2>
+        </div>
+      </div>
+      <ul class="social-list">
+        <li>
+          <a href="https://arcanakyouka.github.io/Artstore/" target="_blank" rel="noopener noreferrer">Portfolio website and store</a>
+          <p>Store website in progress and use of stock images for right now.</p>
+        </li>
+        <li>
+          <a href="https://github.com/arcanakyouka/fid" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <p>My GitHub profile and repository.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="content-section" id="work">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Selected projects</p>
+          <h2 id="work-title">Work samples</h2>
+        </div>
+      </div>
+      <div class="sample-grid">
+        <figure class="sample-card">
+          <img src="images/color-Theory-one.png" alt="Color theory exploration with a playful illustration" loading="lazy">
+          <figcaption>
+            <h3>Color theory exploration</h3>
+            <p>A playful illustration exploring color theory concepts.</p>
+          </figcaption>
+        </figure>
+        <figure class="sample-card">
+          <img src="images/GamecCover.png" alt="Game cover design" loading="lazy">
+          <figcaption>
+            <h3>Game cover design</h3>
+            <p>A cover design for a game project.</p>
+          </figcaption>
+        </figure>
+        <figure class="sample-card">
+          <img src="images/GooteeJ_Final.jpg" alt="Brush work and digital image overlay illustration" loading="lazy">
+          <figcaption>
+            <h3>Brush work and digital image overlay illustration</h3>
+            <p>An illustration combining traditional brush work with digital image overlays.</p>
+          </figcaption>
+        </figure>
+        <figure class="sample-card">
+          <img src="images/Holden birthday gift.png" alt="Portrait commission for birthday gift" loading="lazy">
+          <figcaption>
+            <h3>Portrait commission for birthday gift</h3>
+            <p>A custom portrait created as a birthday gift.</p>
+          </figcaption>
+        </figure>
+        <figure class="sample-card">
+          <img src="images/painting.png" alt="Digital painting" loading="lazy">
+          <figcaption>
+            <h3>Digital painting</h3>
+            <p>A digital painting created as practice.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="content-section" id="contact">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Let’s connect</p>
+          <h2>Get in touch</h2>
+        </div>
+      </div>
+      <p>I’d be glad to hear about entry-level opportunities, internships, or collaborative projects.</p>
+      <div class="contact-links">
+        <a class="button-link" href="mailto:arcanaKyouka@outlook.com">Email me</a>
+        <a href="#home">Back to top</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 Jadon Gootee. Portfolio in progress.</p>
+  </footer>
+</body>
+</html>
