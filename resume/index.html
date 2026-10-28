@@ -249,6 +249,9 @@
       }
     }
     .sample-card {
+      width: 200px;
+      max-width: 100%;
+      justify-self: center;
       overflow: hidden;
       margin: 0;
       background: var(--surface);
@@ -257,9 +260,16 @@
     }
     .sample-card img {
       display: block;
-      width: 100%;
-      height: auto;
+      width: 200px;
+      max-width: 100%;
+      height: 200px;
+      object-fit: cover;
       background: #e7ece8;
+    }
+    .sample-link {
+      display: block;
+      width: 200px;
+      max-width: 100%;
     }
     .sample-card figcaption {
       padding: 1rem 1.1rem 1.15rem;
@@ -431,35 +441,55 @@
       </div>
       <div class="sample-grid">
         <figure class="sample-card">
-          <img src="Images/color-Theory-one.png" alt="Color theory exploration with a playful illustration" loading="lazy">
+          <a class="sample-link" href="Artwork/color-theory-exploration.html" aria-label="View color theory exploration">
+            <picture>
+              <img src="Images/color-Theory-one-thumb.png" alt="Color theory exploration with a playful illustration" width="200" height="200" loading="lazy">
+            </picture>
+          </a>
           <figcaption>
             <h3>Color theory exploration</h3>
             <p>A playful illustration exploring color theory concepts.</p>
           </figcaption>
         </figure>
         <figure class="sample-card">
-          <img src="Images/GamecCover.png" alt="Game cover design" loading="lazy">
+          <a class="sample-link" href="Artwork/game-cover-design.html" aria-label="View game cover design">
+            <picture>
+              <img src="Images/GamecCover-thumb.png" alt="Game cover design" width="200" height="200" loading="lazy">
+            </picture>
+          </a>
           <figcaption>
             <h3>Game cover design</h3>
             <p>A cover design for a game project.</p>
           </figcaption>
         </figure>
         <figure class="sample-card">
-          <img src="Images/GooteeJ_Final.jpg" alt="Brush work and digital image overlay illustration" loading="lazy">
+          <a class="sample-link" href="Artwork/brushwork-overlay.html" aria-label="View brush work and digital image overlay illustration">
+            <picture>
+              <img src="Images/GooteeJ_Final-thumb.png" alt="Brush work and digital image overlay illustration" width="200" height="200" loading="lazy">
+            </picture>
+          </a>
           <figcaption>
             <h3>Brush work and digital image overlay illustration</h3>
             <p>An illustration combining traditional brush work with digital image overlays.</p>
           </figcaption>
         </figure>
         <figure class="sample-card">
-          <img src="Images/Holden birthday gift.png" alt="Portrait commission for birthday gift" loading="lazy">
+          <a class="sample-link" href="Artwork/birthday-portrait.html" aria-label="View portrait commission for birthday gift">
+            <picture>
+              <img src="Images/Holden%20birthday%20gift-thumb.png" alt="Portrait commission for birthday gift" width="200" height="200" loading="lazy">
+            </picture>
+          </a>
           <figcaption>
             <h3>Portrait commission for birthday gift</h3>
             <p>A custom portrait created as a birthday gift.</p>
           </figcaption>
         </figure>
         <figure class="sample-card">
-          <img src="Images/painting.png" alt="Digital painting" loading="lazy">
+          <a class="sample-link" href="Artwork/digital-painting.html" aria-label="View digital painting">
+            <picture>
+              <img src="Images/painting-thumb.png" alt="Digital painting" width="200" height="200" loading="lazy">
+            </picture>
+          </a>
           <figcaption>
             <h3>Digital painting</h3>
             <p>A digital painting created as practice.</p>
