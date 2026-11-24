@@ -30,9 +30,10 @@
     padding-top: 1em;
   }
   </style>
+  <link rel="stylesheet" href="../bistroCSS.css">
 </head>
 
-<body>
+<body class="pizza-page">
   <?php if (isset($_POST['toppings']) && !is_array($_POST['toppings'])) {
     $toppings_problem = TRUE;
     $toppings = is_string($_POST['toppings']) ? $_POST['toppings'] : '<em>empty</em>';
